@@ -1,7 +1,18 @@
 #!/usr/bin/python3
-MyInt = __import__('100-my_int').MyInt
+"""Contains a class `MyInt` that inherits from `int`"""
 
-my_i = MyInt(3)
-print(my_i)
-print(my_i == 3)
-print(my_i != 3)
+
+class MyInt(int):
+    """Inherits from int base class"""
+    def __init__(self, value):
+        """Initialize value"""
+        self.value = value
+
+    def __ne__(self, x):
+        """not equal to comparison"""
+        if self.value is x:
+            return True
+
+    def __eq__(self, x):
+        """equal to comparison"""
+        return not self.__ne__(x)
