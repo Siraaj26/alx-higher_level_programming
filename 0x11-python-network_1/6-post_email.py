@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-""" contains function that finds a peak in a list
-    of unsorted integers.
+"""A  script that:
+- takes in a URL and an email address
+- sends a POST request to the passed URL with the email as a parameter
+- displays the body of the response.
 """
+import sys
+import requests
 
 
-def find_peak(list_of_integers):
-    """Function finds peak of list passed in"""
-    if type(list_of_integers) != list:
-        return
-    if len(list_of_integers) == 0:
-        return None
-    list_of_integers.sort(reverse=True)
-    return list_of_integers[0]
+if __name__ == "__main__":
+    url = sys.argv[1]
+    value = {"email": sys.argv[2]}
+
+    r = requests.post(url, data=value)
+    print(r.text)
